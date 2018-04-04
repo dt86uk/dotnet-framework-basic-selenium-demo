@@ -13,11 +13,11 @@ namespace SeleniumWebDrvier.Model
 {
     public class WebBrowserModel
     {
-        public BrowserTypeEnum Type { get; set; }
+        private BrowserTypeEnum Type { get; set; }
         public IWebDriver WebDriver { get; set; }
 
         // Ensure you download all of the browser drivers and keep them in one spot
-        // Browser directories here - x64 bit machine!
+        // Browser directories here - this is for a x64 bit machine!
         private const string DriverLocation = "C:\\BrowserDrivers";
 
         public WebBrowserModel(BrowserTypeEnum browserType)
@@ -49,7 +49,7 @@ namespace SeleniumWebDrvier.Model
                         throw new ArgumentOutOfRangeException(nameof(browserType), browserType, "Browser not listed");
                 }
             }
-            catch (Exception e)
+            catch 
             {
                 Console.WriteLine("Driver not in specified location");
                 throw;
